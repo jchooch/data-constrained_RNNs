@@ -1,2 +1,4 @@
 # data-constrained_RNNs
-Training and analysis of data-constrained recurrent neural networks (dcRNNs), with calcium imaging data from zebrafish exposed to moving gratings.
+Modelling zebrafish pretectal responses to moving gratings with data-constrained recurrent neural networks, trained from calcium imaging data with FORCE learning.
+
+All code is preliminary and in-progress.
