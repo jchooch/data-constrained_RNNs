@@ -71,7 +71,13 @@ coeff = pca(accumulated_Js);
 mapcaplot(accumulated_Js)
 
 %%% Biclustering (Doesn't seem to be working at the moment...?)
-bicluster_result = biclust(J, 'cc'); % applies Cheng & Church algorithm 
+bicluster_result_1 = biclust(J, 'cc'); % applies Cheng & Church algorithm 
+bicluster_result_2 = biclust(J, 'plaid');
+bicluster_result_3 = biclust(J, 'opsm');
+bicluster_result_4 = biclust(J, 'isa');
+bicluster_result_5 = biclust(J, 'bimax');
+bicluster_result_6 = biclust(J, 'bayes');
+bicluster_result_7 = biclust(J, 'floc');
 
 %{
 try multiple ks
