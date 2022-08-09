@@ -71,6 +71,5 @@ title('Hamming')
 coeff = pca(accumulated_Js);
 mapcaplot(accumulated_Js)
 
-%%% Biclustering!
-
+%%% Biclustering (Doesn't seem to be working at the moment...?)
 bicluster_result = biclust(J, 'cc'); % applies Cheng & Church algorithm 

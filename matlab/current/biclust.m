@@ -1,3 +1,6 @@
+%%% THIS FUNCTION IS FROM THE MTBA LIBRARY DUE TO J. K. Gupta, S. Singh and N. K. Verma
+%%% SEE MORE INFORMATION AT: https://www.iitk.ac.in/idea/mtba/
+
 function res = biclust(data, method, varargin)
 % Wrapper function to various biclustering algorithms
 %

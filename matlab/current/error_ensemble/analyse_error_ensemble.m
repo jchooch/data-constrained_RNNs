@@ -4,11 +4,11 @@ clear all;
 close all;
 clc;
 
-load("mode_4_rep_1.mat");
+load("mode_5_rep_1.mat");
 J_1 = network.J;
-load("mode_4_rep_2.mat");
+load("mode_5_rep_2.mat");
 J_2 = network.J;
-load("mode_4_rep_3.mat");
+load("mode_5_rep_3.mat");
 J_3 = network.J;
 
 load("mode_1_rep_1.mat");
