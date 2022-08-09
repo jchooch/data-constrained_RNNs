@@ -1,7 +1,6 @@
-matlab/current/ensemble/*
-matlab/current/error_ensemble/*
-matlab/current/sparse_ensemble_20220713/*
-matlab/current/63L_1R_ensemble/*
 matlab/current/20_lambs_10_reps_L1_ver1.mat
 matlab/current/10_lambs_1_rep_L1_ver2.mat
+matlab/current/63L_1R_ensemble/*
+matlab/current/ensemble/*
+matlab/current/error_ensemble/*
 matlab/current/sparse_ensemble_20220713/*
