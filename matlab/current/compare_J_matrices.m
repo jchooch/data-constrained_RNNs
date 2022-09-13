@@ -26,4 +26,7 @@ function [J1_zeros, J2_zeros, J1_tiny, J2_tiny, J1_mean, J2_mean, J1_var, J2_var
     D = abs(J1 - J2);
     D_mean = mean(D, 'all');
     fprintf('Mean pointwise difference: %d \n', D_mean)
+
+    % look at mean absolute values
+    % 
 end

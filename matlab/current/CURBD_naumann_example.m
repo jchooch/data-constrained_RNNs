@@ -48,10 +48,10 @@ end
 % I.e. "left eye rightward motion", "right eye upward motion", ...
 input_names = ["REUM", "RERM", "REDM", "RELM", "LEUM", "LERM", "LEDM", "LELM"];
 
-correlation_table = [];
+%correlation_table = [];
 
 for ensemble_index = 1:1
-    data{ensemble_index} = load(sprintf('~/Documents/github_jchooch/zfish_pretectum_rnn/matlab/current/ensemble/output_%d.mat', ensemble_index));
+    data{ensemble_index} = load(sprintf('ensemble/output_%d.mat', ensemble_index));
     fprintf('Data index (from ensemble): %d \n Data file: output_%d.mat \n', ensemble_index, ensemble_index);
     eg_RNN = data{1, ensemble_index}.R(:, 1:end-2);
     eg_J = data{1, ensemble_index}.J;
@@ -65,7 +65,7 @@ for ensemble_index = 1:1
     current_figure = figure('Position', [100 100 900 900], 'Visible', 'on');
     plot_index = reshape(1:size(eg_CURBD,1) * (size(eg_CURBD,2)+1), size(eg_CURBD,1), size(eg_CURBD,2)+1).';
     count = 1;
-    average_correlations = [];
+    %average_correlations = [];
     for iTarget = 1:size(eg_CURBD,1)
         target_activities = [];
         for id = 1:length(eg_regions{iTarget, 2})
@@ -88,24 +88,25 @@ for ensemble_index = 1:1
             xlabel('Time');
             ylabel(['Neurons in ' eg_regions{iTarget,1}]);
             title([eg_regions{iSource,1} ' to ' eg_regions{iTarget,1} ' Currents']);
-            summed_correlations = 0;
+            %summed_correlations = 0;
             for neuron = 1:length(eg_regions{iTarget, 2})
-                summed_correlations = summed_correlations + corr2(eg_CURBD{iTarget, iSource}(neuron, :), target_activities(neuron, :));
+                %summed_correlations = summed_correlations + corr2(eg_CURBD{iTarget, iSource}(neuron, :), target_activities(neuron, :));
             end
-            average_correlation = summed_correlations / size(eg_CURBD{iTarget,iSource}, 1);
-            fprintf('Average correlation between target %d and source %d: %d \n', iTarget, iSource, average_correlation);
-            average_correlations = [average_correlations; average_correlation];
+            %average_correlation = summed_correlations / size(eg_CURBD{iTarget,iSource}, 1);
+            %fprintf('Average correlation between target %d and source %d: %d \n', iTarget, iSource, average_correlation);
+            %average_correlations = [average_correlations; average_correlation];
         end
     end
     colormap redblue(100);
-    saveas(current_figure, sprintf('CURBD_figures/CURBD_fig_%d.png', ensemble_index));
-    disp('Average correlations:')
-    disp(average_correlations)
-    correlation_table = [correlation_table; reshape(average_correlations', 1, numel(average_correlations))];
+    saveas(current_figure, sprintf('CURBD_fig_%d.png', ensemble_index));
+    %disp('Average correlations:')
+    %disp(average_correlations)
+    %correlation_table = [correlation_table; reshape(average_correlations', 1, numel(average_correlations))];
     %correlation_table = [correlation_table; ensemble_index, reshape(average_correlations', 1, numel(average_correlations))];
 end
-display(correlation_table)
+%display(correlation_table)
 
+%{
 figure()
 %plot_curbd_correlations(correlation_table, eg_CURBD)
 h = heatmap(reshape(correlation_table, [size(eg_CURBD, 1), size(eg_CURBD, 2)]));
@@ -118,6 +119,7 @@ for i=1:size(eg_regions, 1)
 end
 h.XDisplayLabels = num2cell(region_names);
 h.YDisplayLabels = num2cell(region_names);
+%}
 
 % want to create a pca cell with pca coeff matrices for all curbd matrices
 % want to create a reduced_activities for all curbd matrices (multiply
